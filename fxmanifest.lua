@@ -5,15 +5,20 @@ lua54 'yes'
 
 name 'atl-status'
 author 'Atlas Framework Developers'
+version '0.0.1'
+
+shared_script '@atl-core/import.lua'
 
 client_scripts {
-    'client/*.lua'
+  'client/main.lua',
 }
 
 server_scripts {
-    '@oxmysql/lib/MySQL.lua',
+  'server/main.lua',
+}
 
-    'server/*.lua',
+dependencies {
+  'atl-core',
 }
 
 provide 'status' -- Instead of saying 'stop atl-core', you can just say 'stop core'
