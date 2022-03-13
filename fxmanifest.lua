@@ -7,7 +7,9 @@ name 'atl-status'
 author 'Atlas Framework Developers'
 version '0.0.1'
 
-shared_script '@atl-core/import.lua'
+shared_scripts {
+  '@atl-core/import.lua',
+}
 
 client_scripts {
   'client/main.lua',
