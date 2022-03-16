@@ -1,7 +1,23 @@
-RegisterNetEvent('atl:status:update', function()
+local function add(status, value)
+  local playerId = source
+  local player = ATL.GetPlayer(playerId)
+
+  if not player.status[status] or status == 'health' or status == 'armor' then
+    return
+  end
+
+  if type(value) ~= 'number' or value > 100 or value <= 0 then
+    return
+  end
+
+  player.addStatus(status, value)
+end
+
+local function update()
   local playerId = source
   local player = ATL.GetPlayer(playerId)
   local status = {}
+
   for name, data in pairs(player.status) do
     if name == 'health' then
       status[name] = {
@@ -29,4 +45,7 @@ RegisterNetEvent('atl:status:update', function()
     end
   end
   player.setStatus(status)
-end)
+end
+
+RegisterNetEvent('atl-status:server:update', update)
+RegisterNetEvent('atl-status:server:add', add)
