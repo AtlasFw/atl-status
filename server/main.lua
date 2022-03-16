@@ -13,7 +13,22 @@ local function add(status, value)
   player.addStatus(status, value)
 end
 
-local function update()
+local function subtract(status, value)
+  local playerId = source
+  local player = ATL.GetPlayer(playerId)
+
+  if not player.status[status] or status == 'health' or status == 'armor' then
+    return
+  end
+
+  if type(value) ~= 'number' or value > 100 or value <= 0 then
+    return
+  end
+
+  player.subtractStatus(status, value)
+end
+
+local function intervalDisccount()
   local playerId = source
   local player = ATL.GetPlayer(playerId)
   local status = {}
@@ -47,5 +62,6 @@ local function update()
   player.setStatus(status)
 end
 
-RegisterNetEvent('atl-status:server:update', update)
+RegisterNetEvent('atl-status:server:intervalDisccount', intervalDisccount)
 RegisterNetEvent('atl-status:server:add', add)
+RegisterNetEvent('atl-status:server:subtract', subtract)
