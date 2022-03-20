@@ -46,12 +46,12 @@ local function removeInterval()
     else
       local value = player.getStatus(name).value
       local rate = player.getStatus(name).rate
-      local newValue = nil
+      local newValue = value + rate
 
-      if value <= 0 then
+      if newValue > 100 then
+        newValue = 100
+      elseif newValue < 0 then
         newValue = 0
-      else
-        newValue = value + rate
       end
 
       status[name] = {
