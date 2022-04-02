@@ -28,7 +28,7 @@ local function subtract(status, value)
   player.subtractStatus(status, value)
 end
 
-local function removeInterval()
+local function subtractInterval()
   local playerId = source
   local player = ATL.GetPlayer(playerId)
   local playerPed = GetPlayerPed(playerId)
@@ -63,6 +63,6 @@ local function removeInterval()
   player.setStatus(status)
 end
 
-RegisterNetEvent('atl-status:server:removeInterval', removeInterval)
+RegisterNetEvent('atl-status:server:subtractInterval', subtractInterval)
 RegisterNetEvent('atl-status:server:add', add)
 RegisterNetEvent('atl-status:server:subtract', subtract)
