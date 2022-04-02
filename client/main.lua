@@ -1,7 +1,7 @@
 local function initStatus()
   CreateThread(function()
     while true do
-      Wait(10000)
+      Wait(60000)
       TriggerServerEvent 'atl-status:server:subtractInterval'
       checkValues()
     end
