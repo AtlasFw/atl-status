@@ -3,7 +3,7 @@ Atlas Framework Status.
 
 ## License
 ```
-atl-ui
+atl-status
 
 Copyright (C) 2022 Atlas Framework
 
