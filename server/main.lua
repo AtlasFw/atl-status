@@ -25,7 +25,7 @@ local function subtract(status, value)
     return
   end
 
-  player.subtractStatus(status, value)
+  player.reduceStatus(status, value)
 end
 
 local function subtractInterval()
